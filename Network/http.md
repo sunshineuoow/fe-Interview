@@ -127,7 +127,25 @@ HTTP/3 中，主要的变化是改为使用基于 UDP 协议的 QUIC 协议实�
 
 主要原因是因为，由于 HTTP/2 中在单个 TCP 连接上使用了多路复用，受 TCP 拥塞控制的影响，少量的丢包就可能导致 TCP 连接上所有的流被阻塞。
 
-## 参考资料
+# HTTPS
+超文本传输安全协议(**H**yper**T**ext **T**ransfer **P**rotocol **S**ecure)是一种通过计算机网络进行安全通信的传输协议。
+
+HTTPS 经由 HTTP 进行通信，但是利用 SSL/TLS 来加密数据包，主要的目的是提供对网站服务器的身份认证，保护交换资料的隐私性与完整性。
+
+## 主要作用
+对于 HTTP 的窃听和中间人攻击提供合理的防护。
+
+HTTPS 的信任基于预置在操作系统中的证书颁发机构(CA)。
+
+
+## HTTPS 建立连接的五个阶段
+1. 客户端向服务端发送支持的 SSL/TLS 协议版本号，以及客户端支持的加密方法，和一个 **随机数** (Client random)
+2. 服务端确认协议版本和加密方法，向客户端发送一个**服务器生成的随机数** (Server random)，以及数字证书
+3. 客户端验证证书是否有效，有效则从证书中取出公钥，生成一个**随机数** (Premaster secret) ，然后用该公钥加密，发送给服务器
+4. 服务器用私钥解密，获取发来的随机数
+5. 客户端和服务器根据约定好的加密方法，使用前面生成的三个随机数，生成对话密钥，用来加密后续整个会话传输的数据
+
+# 参考资料
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)
 
 [Http2.0 - 掘金](https://juejin.cn/post/6844903984524705800)
@@ -135,3 +153,7 @@ HTTP/3 中，主要的变化是改为使用基于 UDP 协议的 QUIC 协议实�
 [HTTP/2 - Google](https://developers.google.com/web/fundamentals/performance/http2?hl=zh-cn)
 
 [HTTP/3 - Wiki](https://zh.wikipedia.org/wiki/HTTP/3)
+
+[HTTPS - 阮一峰](https://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+
+[HTTPS - segmentfault](https://segmentfault.com/a/1190000021494676)
