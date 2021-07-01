@@ -129,6 +129,9 @@ HTTP/3 中，主要的变化是改为使用基于 UDP 协议的 QUIC 协议实�
 
 ## 参考资料
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)
+
 [Http2.0 - 掘金](https://juejin.cn/post/6844903984524705800)
+
 [HTTP/2 - Google](https://developers.google.com/web/fundamentals/performance/http2?hl=zh-cn)
+
 [HTTP/3 - Wiki](https://zh.wikipedia.org/wiki/HTTP/3)
